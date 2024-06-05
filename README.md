@@ -5,6 +5,7 @@ It features a Flask-based frontend.
 Uses BeautifulSoup and Playwright for web scraping.
 MySQL for database management. 
 Poetry is used for dependency management.
+E2E tests were done with Selenium.
 
 ## Table of Contents
 
