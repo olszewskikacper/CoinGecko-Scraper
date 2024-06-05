@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Webscraping application</title>
+{% endblock %}
+
+{% block content %} 
+<div class="Block1" id="HeadingButton">
+    <h1>Find random cryptocurrencies by clicking the button below!</h1>
+    <form action="/generate" method="GET">
+        <button id="generate-button" alt="generate-button" type="submit">Generate</button>
+    </form >
+</div>
+
+<div class="Block2" id="cryptocurrency-info">
+    {% if row %}
+    <h2>Your random cryptocurrency is:</h2>
+    <p id="name">Name: {{ row['name'] }}</p>
+    <p id="price">Price: {{ row['price'] }}</p>
+    <p id="hourly-change">Hourly change: {{ row['change_1h'] }}</p>
+    <p id="daily-change">Daily chang: {{ row['change_24h'] }}</p>
+    <p id="weekly-change">Weekly change: {{ row['change_7d'] }}</p>
+    <p id="monthly-change">Monthly change: {{ row['change_30d'] }}</p>
+    <p id="daily-volume">24h volume: {{ row['volume_24h'] }}</p>
+    <p id="circulating-supply">Circulating supply: {{ row['circulating_supply'] }}</p>
+    <p id="total-supply">Total supply: {{ row['total_supply'] }}</p>
+    {% else %}
+        <h2>Your random cryptocurrency is:</h2>
+    <p id="name1">Name:</p>
+    <p id="price1">Price:</p>
+    <p id="hourly-change1">Hourly change:</p>
+    <p id="daily-change1">Daily chang:</p>
+    <p id="weekly-change1">Weekly change:</p>
+    <p id="monthly-change1">Monthly change:</p>
+    <p id="daily-volume1">24h volume:</p>
+    <p id="circulating-supply1">Circulating supply:</p>
+    <p id="total-supply1">Total supply:</p>
+    <p>Please click the "Generate" button to generate random crypto data.</p>
+    {% endif %}
+</div>
+
+<div class="Block3" id="download-button-container">
+    <a href="{{ url_for('download_csv') }}" class="save-btn">Download Data</a>
+</div>
+{% endblock %}

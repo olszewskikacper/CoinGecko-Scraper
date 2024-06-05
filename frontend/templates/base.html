@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Webscraping application</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      {% if session.username %}
+      <div class="navbar-title">Welcome, {{ session.username }}</div>
+      {% endif %}
+        <ul class="navbar-nav">
+          {% if session.username %}
+              <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+              <li class="nav-item"><a href="{{ url_for('all_crypto') }}" class="nav-link">All Crypto</a></li>
+              <li class="nav-item"><a href="{{ url_for('profile') }}" class="nav-link">Profile</a></li>
+              <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link">Logout</a></li>           
+          {% endif %}
+        </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+      {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+<<<<<<< HEAD
+    "python.analysis.typeCheckingMode": "basic"
+=======
+    "python.analysis.extraPaths": [
+        "./backend/Scraping"
+    ]
+>>>>>>> becee665c09f6ecf281f33dab898a9e57b7a9d8c
+}

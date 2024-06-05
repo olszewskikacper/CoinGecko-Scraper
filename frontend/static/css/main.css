@@ -1,0 +1,268 @@
+body {
+    background-color: #e8f1f2;
+    font-family:sans-serif, Arial;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title {
+    font-size: 1.5em;
+}
+
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.container {
+    padding: 20px;
+}
+
+.Block1 {
+    width: 60%;
+    margin: auto;
+    margin-top: 40px;
+    padding: 40px;
+    border-radius: 20px;
+    background-image: linear-gradient(to right,#4d5355,#302f2f);
+    text-align: center;
+    color: white;
+}
+
+#generate-button {
+    width: 180px;
+    height: 60px;
+    font-size: 20px;
+    padding: 15px 25px;
+    background-image: radial-gradient(#323232,#000000);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 20px;
+    color: white;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+
+#generate-button:hover {
+    transform: scale(1.05);
+}
+
+
+.Block2 {
+    width: 40%;
+    margin:auto;
+    margin-top: 40px;
+    padding: 40px;
+    border-radius: 20px;
+    background-image: linear-gradient(to right,#4d5355,#302f2f);
+    text-align: center;
+    color: white;
+}
+
+.Block3 {
+    width: 30%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+}
+
+
+#welcome-message {
+    color: white;
+    padding-right: 20px;
+}
+
+.auth {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.auth form {
+    display: flex;
+    flex-direction:column;
+}
+
+.auth label {
+    margin-bottom: 5px;
+}
+
+.auth-container input[type="text"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
+
+.auth-container input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
+
+.auth input[type='submit']{
+    padding: 10px 50px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 55px;
+    cursor: pointer;
+    align-self: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.auth input[type='submit']:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.auth .message {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#cryptoTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+
+#cryptoTable th, #cryptoTable td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+
+#cryptoTable th {
+    background-color: #333;
+    color: white;
+}
+
+
+#cryptoTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+#cryptoTable tr:hover {
+    background-color: #ddd;
+}
+
+
+#cryptoTable .up {
+    color: green;
+}
+
+
+#cryptoTable .down {
+    color: red;
+}
+
+
+#searchBar {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+
+.crypto-name {
+    position: relative;
+}
+
+
+.favorite-btn {
+    padding: 5px 10px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+
+.favorite-btn:hover {
+    background-color: #e6b800;
+    transform: scale(1.05);
+}
+
+
+.remove-favorite-btn {
+    padding: 5px 10px;
+    background-color: #ff3333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+.remove-favorite-btn:hover {
+    background-color: #cc0000;
+}
+
+
+.save-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+
+.save-btn:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}

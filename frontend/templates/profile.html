@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block content %}
+<h1>Profile Page</h1>
+
+<h2>Favorite Cryptocurrencies</h2>
+<input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Search for cryptocurrencies..">
+<table id="cryptoTable">
+    <thead>
+        <tr>
+            <th>Remove</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Change 1h</th>
+            <th>Change 24h</th>
+            <th>Change 7d</th>
+            <th>Change 30d</th>
+            <th>24h Volume</th>
+            <th>Circulating Supply</th>
+            <th>Total Supply</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for crypto in favorites %}
+        <tr>
+            <td>
+                <button class="remove-favorite-btn" onclick="removeFromFavorites('{{ crypto.name }}')">Remove</button>
+            </td>
+            <td>{{ crypto.name }}</td>
+            <td>{{ crypto.price }}</td>
+            <td class="{{ 'up' if crypto.direction_1h == 'up' else 'down' }}">{{ crypto.change_1h }}</td>
+            <td class="{{ 'up' if crypto.direction_24h == 'up' else 'down' }}">{{ crypto.change_24h }}</td>
+            <td class="{{ 'up' if crypto.direction_7d == 'up' else 'down' }}">{{ crypto.change_7d }}</td>
+            <td class="{{ 'up' if crypto.direction_30d == 'up' else 'down' }}">{{ crypto.change_30d }}</td>
+            <td>{{ crypto.volume_24h }}</td>
+            <td>{{ crypto.circulating_supply }}</td>
+            <td>{{ crypto.total_supply }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+function searchTable() {
+    var input, filter, table, tr, td, i, j, txtValue;
+    input = document.getElementById("searchBar");
+    filter = input.value.toLowerCase();
+    table = document.getElementById("cryptoTable");
+    tr = table.getElementsByTagName("tr");
+
+    for (i = 1; i < tr.length; i++) {
+        tr[i].style.display = "none";
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j]) {
+                txtValue = td[j].textContent || td[j].innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                    break;
+                }
+            }
+        }
+    }
+}
+
+function removeFromFavorites(cryptoName) {
+    fetch('/remove-from-favorites', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: cryptoName }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            var listItem = document.querySelector(`tr[data-name='${cryptoName}']`);
+            if (listItem) {
+                listItem.remove();
+            }
+            alert('Removed from favorites!');
+        } else {
+            alert('Failed to remove from favorites.');
+        }
+    });
+}
+</script>
+{% endblock %}
